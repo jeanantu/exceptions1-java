@@ -9,6 +9,7 @@ import java.util.Scanner;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import model.entities.Reservation;
+import model.exceptions.DomainException;
 
 public class Program {
 
@@ -43,8 +44,10 @@ public class Program {
 	        System.out.println("Reservation: "+ reservation);  
 		} catch (ParseException e) {
 			 System.out.print("Invalid date format");
-		} catch (IllegalArgumentException e) {
-			System.out.print("Error in reservation "+ e.getMessage());
+		} catch (DomainException e) {
+			System.out.print("Error in reservation : "+ e.getMessage());
+		} catch (Exception e) {
+			 System.out.print("Error inexpected");
 		}
 
         
